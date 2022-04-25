@@ -89,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                         Resto r = (Resto) listViewRestos.getItemAtPosition(position);
                         startViewUnRestoActivity(r);
-                        finish();
                     }
                 });
             }

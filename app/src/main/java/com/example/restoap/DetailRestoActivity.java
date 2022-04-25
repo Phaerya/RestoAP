@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -28,5 +30,14 @@ public class DetailRestoActivity extends AppCompatActivity {
 
         TextView NomResto = findViewById(R.id.textViewNomResto);
         NomResto.setText(resto.getNomResto());
+
+        Button btnRetour = findViewById(R.id.btnRetour);
+        View.OnClickListener ecouteur = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        };
+        btnRetour.setOnClickListener(ecouteur);
     }
 }
