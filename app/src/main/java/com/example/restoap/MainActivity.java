@@ -88,18 +88,15 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                         Resto r = (Resto) listViewRestos.getItemAtPosition(position);
-                        Long idResto = Long.valueOf(r.getidResto());
-                        startViewUnRestoActivity(idResto, r);
+                        startViewUnRestoActivity(r);
                         finish();
                     }
                 });
             }
 
-            private void startViewUnRestoActivity(Long idResto, Resto r) {
+            private void startViewUnRestoActivity(Resto r) {
                 Intent intent = new Intent(MainActivity.this, DetailRestoActivity.class);
-                intent.putExtra("RESTO_ID", idResto);
                 intent.putExtra("Resto", r);
-                Log.i("Restos", String.valueOf(idResto));
                 startActivity(intent);
             }
         });

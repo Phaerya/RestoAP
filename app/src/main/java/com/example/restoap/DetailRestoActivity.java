@@ -24,13 +24,7 @@ public class DetailRestoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fiche_resto);
         Intent intent = getIntent();
-        long idlu = -1;
         Resto resto = (Resto) intent.getSerializableExtra("Resto");
-        if (intent != null) {
-            idlu = intent.getLongExtra("RESTO_ID", -1);
-        }
-        final long id = idlu;
-        System.out.println(idlu);
 
         TextView NomResto = findViewById(R.id.textViewNomResto);
         NomResto.setText(resto.getNomResto());
