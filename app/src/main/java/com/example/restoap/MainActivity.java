@@ -65,8 +65,12 @@ public class MainActivity extends AppCompatActivity {
                                 String nom = jsonObject.getString("nomResto");
                                 String ville = jsonObject.getString("ville");
                                 String codePostal = jsonObject.getString("codePostal");
+                                String localisation = jsonObject.getString("localisation");
+                                String horaires = jsonObject.getString("horaires");
+                                String description = jsonObject.getString("description");
+
                                 Log.i("restos", nom + " " + ville + " ");
-                                Resto r = new Resto(idResto, nom, ville, codePostal);
+                                Resto r = new Resto(idResto, nom, ville, codePostal, localisation, horaires, description);
                                 lesRestos.add(r);
                             }
 
