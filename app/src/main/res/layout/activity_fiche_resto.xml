@@ -1,67 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/restobackground"
+    android:textColor="@color/black"
+    >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <Button
+        android:id="@+id/btnRetour"
+        android:layout_width="76dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:text="Retour"
+        android:textSize="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/btnRetour"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Retour" />
+    <TextView
+        android:id="@+id/textViewNomResto"
+        android:layout_width="254dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="10dp"
+        android:text="NomResto"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRetour" />
 
-        <TextView
-            android:id="@+id/textViewNomResto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="" />
+    <TextView
+        android:id="@+id/textViewAdresseComplete"
+        android:layout_width="245dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:text="Adresse : "
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNomResto" />
 
-        <TextView
-            android:id="@+id/textViewLocalisation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="" />
+    <TextView
+        android:id="@+id/textViewLocalisation"
+        android:layout_width="255dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:text="rue"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAdresseComplete" />
 
-        <TextView
-            android:id="@+id/textViewCodePostal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="" />
+    <TextView
+        android:id="@+id/textViewCodePostal"
+        android:layout_width="82dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="25dp"
+        android:text="codePostal"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLocalisation" />
 
-        <TextView
-            android:id="@+id/textViewVille"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="" />
+    <TextView
+        android:id="@+id/textViewVille"
+        android:layout_width="172dp"
+        android:layout_height="27dp"
+        android:text="ville"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/textViewCodePostal"
+        app:layout_constraintTop_toTopOf="@+id/textViewCodePostal" />
 
-        <TextView
-            android:id="@+id/textViewHoraires"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="" />
+    <TextView
+        android:id="@+id/textViewDescriptionAffichage"
+        android:layout_width="302dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="33dp"
+        android:text="Spécialité du restaurant :"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCodePostal" />
 
-        <TextView
-            android:id="@+id/textViewDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="" />
+    <TextView
+        android:id="@+id/textViewDescription"
+        android:layout_width="261dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:text=""
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDescriptionAffichage" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+    <TextView
+        android:id="@+id/textViewOuverture"
+        android:layout_width="82dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:text="Ouvert de "
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDescription" />
 
-            <Button
-                android:id="@+id/btnReserver"
-                android:layout_width="207dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="btnReserver" />
-        </LinearLayout>
+    <TextView
+        android:id="@+id/textViewHoraires"
+        android:layout_width="207dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:textSize="20dp"
+        android:text=""
+        app:layout_constraintStart_toEndOf="@+id/textViewOuverture"
+        app:layout_constraintTop_toTopOf="@+id/textViewOuverture" />
 
-    </LinearLayout>
+    <Button
+        android:id="@+id/btnReserver"
+        android:layout_width="207dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="20dp"
+        android:layout_weight="1"
+        android:text="Reserver"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHoraires" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
