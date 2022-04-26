@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         final ListView listViewRestos = findViewById(R.id.listViewRestos);
 
         //Prépare la requête
-        Request requestClients = new Request.Builder().url("http://192.168.1.19/apiResto/getAllRestosJSON.php").build();
+        Request requestClients = new Request.Builder().url("http://192.168.1.46/projet/getAllRestosJSON.php").build();
         httpclient.newCall(requestClients).enqueue(new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
@@ -52,48 +52,38 @@ public class MainActivity extends AppCompatActivity {
 
                 final String myResponse = response.body().string();
                 System.out.println(myResponse);
-                MainActivity.this.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            JSONObject jsonObjectLesRestos = new JSONObject(myResponse);
-                            JSONArray jsonArray = jsonObjectLesRestos.optJSONArray("restos");
-                            lesRestos.clear();
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                                int idResto = jsonObject.getInt("idResto");
-                                String nom = jsonObject.getString("nomResto");
-                                String ville = jsonObject.getString("ville");
-                                String codePostal = jsonObject.getString("codePostal");
-                                String localisation = jsonObject.getString("localisation");
-                                String horaires = jsonObject.getString("horaires");
-                                String description = jsonObject.getString("description");
+                MainActivity.this.runOnUiThread(() -> {
+                    try {
+                        JSONObject jsonObjectLesRestos = new JSONObject(myResponse);
+                        JSONArray jsonArray = jsonObjectLesRestos.optJSONArray("restos");
+                        lesRestos.clear();
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+                            int idResto = jsonObject.getInt("idResto");
+                            String nom = jsonObject.getString("nomResto");
+                            String ville = jsonObject.getString("ville");
+                            String codePostal = jsonObject.getString("codePostal");
+                            String localisation = jsonObject.getString("localisation");
+                            String horaires = jsonObject.getString("horaires");
+                            String description = jsonObject.getString("description");
 
-                                Log.i("restos", nom + " " + ville + " ");
-                                Resto r = new Resto(idResto, nom, ville, codePostal, localisation, horaires, description);
-                                lesRestos.add(r);
-                            }
+                            Log.i("restos", nom + " " + ville + " ");
+                            Resto r = new Resto(idResto, nom, ville, codePostal, localisation, horaires, description);
+                            lesRestos.add(r);
 
-                            ArrayAdapter<Resto> dataAdapter = new ArrayAdapter<Resto>(MainActivity.this, android.R.layout.simple_list_item_1, lesRestos);
-                            listViewRestos.setAdapter(dataAdapter);
-
-                        } catch (final JSONException e) {
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Log.i("Erreur 2", "ligne 76");
-                                }
-                            });
                         }
+
+                        ArrayAdapter<Resto> dataAdapter = new ArrayAdapter<Resto>(MainActivity.this, android.R.layout.simple_list_item_1, lesRestos);
+                        listViewRestos.setAdapter(dataAdapter);
+
+                    } catch (final JSONException e) {
+                        runOnUiThread(() -> Log.i("Erreur 2", "ligne 76"));
                     }
                 });
 
-                listViewRestos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                        Resto r = (Resto) listViewRestos.getItemAtPosition(position);
-                        startViewUnRestoActivity(r);
-                    }
+                listViewRestos.setOnItemClickListener((adapterView, view, position, id) -> {
+                    Resto r = (Resto) listViewRestos.getItemAtPosition(position);
+                    startViewUnRestoActivity(r);
                 });
             }
 
