@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/restobackground"
-    android:textColor="@color/black"
-    >
+    android:textColor="@color/black">
 
     <Button
         android:id="@+id/btnRetour"

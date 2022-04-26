@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         final ListView listViewRestos = findViewById(R.id.listViewRestos);
 
         //Prépare la requête
+        //Modifier la ligne suivante pour que l'installation corresponde
         Request requestClients = new Request.Builder().url("http://192.168.1.19/apiResto/getAllRestosJSON.php").build();
         httpclient.newCall(requestClients).enqueue(new Callback() {
             @Override
