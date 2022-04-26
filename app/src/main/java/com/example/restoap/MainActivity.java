@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 
 
@@ -36,17 +35,11 @@ public class MainActivity extends AppCompatActivity {
         //On définit une collection de restaurants
         ArrayList<Resto> lesRestos = new ArrayList<Resto>();
 
-        Button button_login = findViewById(R.id.button_login);
-        button_login.setOnClickListener(view ->{
-            Intent intent= new Intent(this, LoginActivity.class);
-            startActivity(intent);
-        });
-
         OkHttpClient httpclient = new OkHttpClient();
         final ListView listViewRestos = findViewById(R.id.listViewRestos);
 
         //Prépare la requête
-        Request requestClients = new Request.Builder().url("http://192.168.1.46/projet/getAllRestosJSON.php").build();
+        Request requestClients = new Request.Builder().url("http://192.168.1.19/apiResto/getAllRestosJSON.php").build();
         httpclient.newCall(requestClients).enqueue(new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
@@ -101,9 +94,7 @@ public class MainActivity extends AppCompatActivity {
                         Resto r = (Resto) listViewRestos.getItemAtPosition(position);
                         startViewUnRestoActivity(r);
                     }
-
                 });
-
             }
 
             private void startViewUnRestoActivity(Resto r) {
@@ -111,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("Resto", r);
                 startActivity(intent);
             }
-
         });
     }
 }

@@ -33,8 +33,6 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent= new Intent(this, MainActivity.class);
                     startActivity(intent);
 
-
-
                 }else
                     //incorrect
                     Toast.makeText(LoginActivity.this,"LOGIN FAILED !!!",Toast.LENGTH_SHORT).show();
