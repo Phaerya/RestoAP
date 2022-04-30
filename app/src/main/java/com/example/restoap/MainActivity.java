@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 
@@ -35,11 +36,21 @@ public class MainActivity extends AppCompatActivity {
         //On définit une collection de restaurants
         ArrayList<Resto> lesRestos = new ArrayList<Resto>();
 
+        Button button_login = findViewById(R.id.button_login);
+        button_login.setOnClickListener(view ->{
+            Intent intent= new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        });
+
         OkHttpClient httpclient = new OkHttpClient();
         final ListView listViewRestos = findViewById(R.id.listViewRestos);
 
         //Prépare la requête
-        Request requestClients = new Request.Builder().url("http://192.168.1.19/apiResto/getAllRestosJSON.php").build();
+        Request requestClients = new Request.Builder().url("http://192.168.1.14/apiResto/getAllRestosJSON.php").build();  //Adresse JOAQUIM
+        //Request requestClients = new Request.Builder().url("http://192.168.1.14/apiResto/getAllRestosJSON.php").build();  //Adresse PACÔME
+        //Request requestClients = new Request.Builder().url("http://192.168.1.14/apiResto/getAllRestosJSON.php").build();  //Adresse ????????????
+        //Request requestClients = new Request.Builder().url("http://192.168.1.14/apiResto/getAllRestosJSON.php").build();  //Adresse ????????????
+
         httpclient.newCall(requestClients).enqueue(new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
@@ -61,16 +72,17 @@ public class MainActivity extends AppCompatActivity {
                             lesRestos.clear();
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                                int idResto = jsonObject.getInt("idResto");
-                                String nom = jsonObject.getString("nomResto");
-                                String ville = jsonObject.getString("ville");
-                                String codePostal = jsonObject.getString("codePostal");
-                                String localisation = jsonObject.getString("localisation");
-                                String horaires = jsonObject.getString("horaires");
-                                String description = jsonObject.getString("description");
+                                int idResto = jsonObject.getInt("idR");
+                                String nom = jsonObject.getString("nomR");
+                                String numRue = jsonObject.getString("numAdrR");
+                                String nomRue = jsonObject.getString("voieAdrR");
+                                String codePostal = jsonObject.getString("cpR");
+                                String ville = jsonObject.getString("villeR");
+                                String description = jsonObject.getString("descR");
+                                String horaires = jsonObject.getString("horairesR");
 
                                 Log.i("restos", nom + " " + ville + " ");
-                                Resto r = new Resto(idResto, nom, ville, codePostal, localisation, horaires, description);
+                                Resto r = new Resto(idResto, nom, numRue, nomRue, ville, codePostal, horaires, description);
                                 lesRestos.add(r);
                             }
 
