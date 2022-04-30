@@ -1,41 +1,44 @@
 package com.example.restoap;
 
 public class Util {
-    protected long idUtil;
-    protected String util;
-    protected String mail;
+    protected long id;
+    protected String pseudo;
+    protected String email;
     protected String mdp;
+    protected int moderation;
 
     @Override
     public String toString() {
         return "Util{" +
-                "idUtil=" + idUtil +
-                ", util='" + util + '\'' +
-                ", mail='" + mail + '\'' +
+                "idUtil=" + id +
+                ", util='" + pseudo + '\'' +
+                ", mail='" + email + '\'' +
                 ", mdp='" + mdp + '\'' +
+                ", moderation='" + moderation + '\'' +
                 '}';
     }
 
-    public Util(String util, String mail, String mdp) {
-        this.util = util;
-        this.mail = mail;
+    public Util(String pseudo, String email, String mdp) {
+        this.pseudo = pseudo;
+        this.email = email;
         this.mdp = mdp;
+
     }
 
-    public String getUtil() {
-        return util;
+    public String getPseudo() {
+        return pseudo;
     }
 
-    public void setUtil(String util) {
-        this.util = util;
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
     }
 
-    public String getMail() {
-        return mail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getMdp() {
