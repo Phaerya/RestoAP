@@ -26,8 +26,10 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -42,7 +44,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Button button_withoutlog = findViewById(R.id.button_withoutlog);
         Button button_register = findViewById(R.id.button_register);
         TextView username = findViewById(R.id.username);
         TextView password = findViewById(R.id.password);
@@ -54,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
         final ListView listViewRestos = findViewById(R.id.listViewRestos);
 
 
-        HashMap<String, String> users = new HashMap<>();
+        Set<Util> users = new HashSet<>();
 
 
 
@@ -86,7 +87,8 @@ public class LoginActivity extends AppCompatActivity {
 
                             array.forEach(jsonElement -> {
                                 JsonObject object = jsonElement.getAsJsonObject();
-                                users.put(object.get("pseudo").getAsString(), object.get("mdp").getAsString());
+                                users.add(gson.fromJson(object.toString(), Util.class));
+
 
                             });
                         } catch (final Exception e) {
@@ -102,30 +104,27 @@ public class LoginActivity extends AppCompatActivity {
                 loginbtn.setOnClickListener((view)->{
                     String pseudo = username.getText().toString();
                     String mdp = password.getText().toString();
-
-                    if (users.containsKey(pseudo)){
-                        if (Objects.equals(users.get(pseudo), mdp)){
-                            Toast.makeText(LoginActivity.this, "Vous êtes bien connectée", Toast.LENGTH_SHORT).show();
-                            //Ouverture de l'activité Resto
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(intent);
-                        }else {
-                            Toast.makeText(LoginActivity.this, "Mot de passe incorrect", Toast.LENGTH_SHORT).show();
+                    boolean register = false;
+                    for (Util user : users) {
+                        if (user.getPseudo().equals(pseudo) && user.getMdp().equals(mdp)){
+                            Toast.makeText(LoginActivity.this, "Tu es bien connectée ! "+ user.getPseudo() , Toast.LENGTH_SHORT).show();
+                            Intent intent3 = new Intent(LoginActivity.this, MainActivity.class);
+                            intent3.putExtra("user", user);
+                            startActivity(intent3);
+                            register = true;
                         }
-                    }else{
-                        Toast.makeText(LoginActivity.this, "Pseudo incorrect", Toast.LENGTH_SHORT).show();
-
                     }
+                    if (!register){
+                        Toast.makeText(LoginActivity.this, "Identifiant invalide ! ", Toast.LENGTH_SHORT).show();
+                    }
+
 
                 });
 
                 //admin and admin
 
 
-                button_withoutlog.setOnClickListener(view -> {
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                });
+
                 button_register.setOnClickListener(view -> {
                     Intent intent2 = new Intent(LoginActivity.this, RegisterActivity.class);
                     startActivity(intent2);
