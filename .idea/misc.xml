@@ -3,17 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Phaerya/AndroidStudioProjects/RestoAP/app/src/main/res/layout/activity_fiche_resto.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Phaerya/AndroidStudioProjects/RestoAP/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2835" />
+        <entry key="..\:/Users/Phaerya/AndroidStudioProjects/RestoAP/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2835" />
+        <entry key="..\:/Users/Phaerya/AndroidStudioProjects/RestoAP/app/src/main/res/layout/activity_fiche_resto.xml" value="0.33" />
+        <entry key="..\:/Users/Phaerya/AndroidStudioProjects/RestoAP/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Phaerya/AndroidStudioProjects/RestoAP/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/dhise/AndroidStudioProjects/RestoAP/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.1785" />
-        <entry key="..\:/Users/dhise/AndroidStudioProjects/RestoAP/app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.1935" />
-        <entry key="..\:/Users/dhise/AndroidStudioProjects/RestoAP/app/src/main/res/drawable/ic_baseline_person_outline_24.xml" value="0.1785" />
-        <entry key="..\:/Users/dhise/AndroidStudioProjects/RestoAP/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1785" />
-        <entry key="..\:/Users/dhise/AndroidStudioProjects/RestoAP/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1" />
-        <entry key="..\:/Users/dhise/AndroidStudioProjects/RestoAP/app/src/main/res/layout/activity_fiche_resto.xml" value="0.25" />
-        <entry key="..\:/Users/dhise/AndroidStudioProjects/RestoAP/app/src/main/res/layout/activity_login.xml" value="0.22" />
-        <entry key="..\:/Users/dhise/AndroidStudioProjects/RestoAP/app/src/main/res/layout/activity_main.xml" value="0.18541666666666667" />
-        <entry key="..\:/Users/dhise/AndroidStudioProjects/RestoAP/app/src/main/res/layout/activity_register.xml" value="0.1" />
+        <entry key="..\:/Users/titielgozo/OneDrive - Ogec la Joliverie/D3-2/Cours _/RestoAP/app/src/main/res/layout/activity_fiche_resto.xml" value="0.40217391304347827" />
       </map>
     </option>
   </component>

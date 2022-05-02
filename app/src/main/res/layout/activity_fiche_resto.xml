@@ -120,7 +120,7 @@
         android:id="@+id/btnReserver"
         android:layout_width="207dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="172dp"
         android:layout_marginEnd="16dp"
         android:layout_weight="1"
         android:text="Reserver"
@@ -138,5 +138,25 @@
         android:textSize="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/dateheure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="date et heure"
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="446dp" />
+
+    <EditText
+        android:id="@+id/nbpersonne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="nombres de personnes"
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="491dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,14 +4,14 @@ import java.io.Serializable;
 
 public class Reserv implements Serializable {
     protected Integer idResto;
-    protected Integer id;
+    protected Integer idUtil;
     protected Integer idReservation;
     protected String date_heure;
     protected Integer nbpersonne;
 
-public Reserv (Integer idResto, Integer id, Integer idReservation, String date_heure, Integer nbpersonne) {
+public Reserv (Integer idResto, Integer idUtil, Integer idReservation, String date_heure, Integer nbpersonne) {
     this.idResto = idResto;
-    this.id = id;
+    this.idUtil = idUtil;
     this.idReservation = idReservation;
     this.date_heure = date_heure;
     this.nbpersonne = nbpersonne;
@@ -24,12 +24,12 @@ public Reserv (Integer idResto, Integer id, Integer idReservation, String date_h
         this.idResto = idResto;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getIdUtil() {
+        return idUtil;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdUtil(Integer id) {
+        this.idUtil = id;
     }
 
     public Integer getIdReservation() {
