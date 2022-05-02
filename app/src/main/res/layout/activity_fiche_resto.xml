@@ -21,7 +21,7 @@
     <TextView
         android:id="@+id/textViewNomResto"
         android:layout_width="254dp"
-        android:layout_height="41dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
         android:layout_marginTop="10dp"
         android:text="NomResto"
@@ -41,10 +41,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewNomResto" />
 
+
     <TextView
-        android:id="@+id/textViewLocalisation"
-        android:layout_width="255dp"
-        android:layout_height="25dp"
+        android:id="@+id/textViewNumRue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="5dp"
         android:text="rue"
@@ -52,24 +53,38 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewAdresseComplete" />
 
+
+    <TextView
+        android:id="@+id/textViewNomRue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Nom Rue"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewNumRue"
+        app:layout_constraintStart_toEndOf="@+id/textViewNumRue"
+        app:layout_constraintTop_toTopOf="@+id/textViewNumRue" />
+
     <TextView
         android:id="@+id/textViewCodePostal"
-        android:layout_width="82dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="25dp"
-        android:text="codePostal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="Ville"
         android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewLocalisation" />
+        app:layout_constraintStart_toEndOf="@+id/textViewVille"
+        app:layout_constraintTop_toTopOf="@+id/textViewVille" />
 
     <TextView
         android:id="@+id/textViewVille"
-        android:layout_width="172dp"
-        android:layout_height="27dp"
-        android:text="ville"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="3dp"
+        android:text="Code Postal"
         android:textSize="20dp"
-        app:layout_constraintStart_toEndOf="@+id/textViewCodePostal"
-        app:layout_constraintTop_toTopOf="@+id/textViewCodePostal" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNumRue" />
 
     <TextView
         android:id="@+id/textViewDescriptionAffichage"
@@ -84,7 +99,7 @@
 
     <TextView
         android:id="@+id/textViewDescription"
-        android:layout_width="261dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="5dp"
@@ -93,36 +108,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewDescriptionAffichage" />
 
-    <TextView
-        android:id="@+id/textViewOuverture"
-        android:layout_width="82dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="25dp"
-        android:text="Ouvert de "
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
+    <WebView
+        android:id="@+id/WebViewHorairesResto"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_marginTop="30dp"
+        android:scrollIndicators="none"
         app:layout_constraintTop_toBottomOf="@+id/textViewDescription" />
-
-    <TextView
-        android:id="@+id/textViewHoraires"
-        android:layout_width="207dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:textSize="20dp"
-        android:text=""
-        app:layout_constraintStart_toEndOf="@+id/textViewOuverture"
-        app:layout_constraintTop_toTopOf="@+id/textViewOuverture" />
 
     <Button
         android:id="@+id/btnReserver"
         android:layout_width="207dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
         android:layout_weight="1"
         android:text="Reserver"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewHoraires" />
+        app:layout_constraintTop_toBottomOf="@+id/WebViewHorairesResto" />
+
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="83dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_weight="1"
+        android:text="Login"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
