@@ -72,7 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
                         e.printStackTrace();
                         Log.i("Erreur 1", "Erreur requête sendAccount");
                         RegisterActivity.this.runOnUiThread(()->{
-                            Toast.makeText(RegisterActivity.this, "HA Putain ça marche ptn mon bol de riz ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "erreur dans la requête ", Toast.LENGTH_SHORT).show();
 
                         });
                     }

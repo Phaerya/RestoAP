@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 import org.json.JSONArray;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button button_disc = findViewById(R.id.disconnect);
         //On définit une collection de restaurants
         ArrayList<Resto> lesRestos = new ArrayList<Resto>();
         OkHttpClient httpclient = new OkHttpClient();
@@ -105,8 +107,16 @@ public class MainActivity extends AppCompatActivity {
             private void startViewUnRestoActivity(Resto r) {
                 Intent intent = new Intent(MainActivity.this, DetailRestoActivity.class);
                 intent.putExtra("Resto", r);
+                intent.putExtra("user", user);
                 startActivity(intent);
             }
+
+        });
+        button_disc.setOnClickListener(view -> {
+            Intent intent5 = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent5);
+            Toast.makeText(MainActivity.this, "Tu es déconnecté ! " , Toast.LENGTH_SHORT).show();
+
         });
     }
 }
