@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         final ListView listViewRestos = findViewById(R.id.listViewRestos);
         System.out.println(user.getPseudo());
         //Prépare la requête
-        Request requestClients = new Request.Builder().url("http://192.168.1.46/projet/getAllRestosJSON.php").build();  //Adresse JOAQUIM
+        Request requestClients = new Request.Builder().url("http://192.168.1.45/projet/getAllRestosJSON.php").build();  //Adresse JOAQUIM
         //Request requestClients = new Request.Builder().url("http://192.168.1.14/apiResto/getAllRestosJSON.php").build();  //Adresse PACÔME
         //Request requestClients = new Request.Builder().url("http://192.168.1.14/apiResto/getAllRestosJSON.php").build();  //Adresse ????????????
         //Request requestClients = new Request.Builder().url("http://192.168.1.14/apiResto/getAllRestosJSON.php").build();  //Adresse ????????????

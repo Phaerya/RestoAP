@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 
@@ -73,9 +74,13 @@ public class DetailRestoActivity extends AppCompatActivity {
 
             OkHttpClient httpclient = new OkHttpClient();
             Request request = new Request.Builder()
-                    .url("http://192.168.1.46/projet/sendReservJSON.php")
+                    .url("http://192.168.1.45/projet/sendReservJSON.php")
                     .post(body)
                     .build();
+
+
+
+
             httpclient.newCall(request).enqueue(new Callback() {
                 @Override
                 public void onFailure(@NonNull Call call, @NonNull IOException e) {
@@ -88,6 +93,7 @@ public class DetailRestoActivity extends AppCompatActivity {
                 }
 
 
+
                 @Override
                 public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                     System.out.println(response.code());
@@ -98,7 +104,54 @@ public class DetailRestoActivity extends AppCompatActivity {
 
                 }
             });
+            JsonObject object = new JsonObject();
+            object.add("idutil", new JsonPrimitive(String.valueOf(resto.getidResto())));
+            System.out.println(object.toString());
+            RequestBody body2 = RequestBody.create(object.toString(), JSON);
+            Request request2 = new Request.Builder()
+                    .url("http://192.168.1.45/projet/getDispoJSON.php")
+                    .post(body2)
+                    .build();
+            httpclient.newCall(request2).enqueue(new Callback() {
+                @Override
+                public void onFailure(@NonNull Call call, @NonNull IOException e) {
+                    e.printStackTrace();
+                    Log.i("Erreur 1", "Erreur requête sendResa");
+                    DetailRestoActivity.this.runOnUiThread(()->{
+                        Toast.makeText(DetailRestoActivity.this, "erreur dans la requête ", Toast.LENGTH_SHORT).show();
 
+                    });
+                }
+
+
+
+               // @Override
+                public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                    System.out.println(response.code());
+                    DetailRestoActivity.this.runOnUiThread(()->{
+/*
+                        Toast.makeText(DetailRestoActivity.this, "Recup effectué salope " , Toast.LENGTH_SHORT).show();
+*/
+
+                        /*try {*/
+                            /*System.out.println(response.body().string());
+                            Gson gson = new Gson();
+                            //Parse le body chakal
+                            JsonObject object3 = gson.fromJson(response.body().toString(), JsonObject.class);
+                            JsonArray array = object3.getAsJsonArray("reservation");
+                            System.out.println(array.size());*/
+                        /*} *//*catch (IOException e) {
+                            *//*e.printStackTrace();*//*
+                        }*/
+
+
+
+
+
+                    });
+
+                }
+            });
 
         });
     }
