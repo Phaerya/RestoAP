@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 import org.json.JSONArray;
@@ -33,20 +34,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button button_disc = findViewById(R.id.disconnect);
         //On définit une collection de restaurants
         ArrayList<Resto> lesRestos = new ArrayList<Resto>();
-
-        Button button_login = findViewById(R.id.button_login);
-        button_login.setOnClickListener(view ->{
-            Intent intent= new Intent(this, LoginActivity.class);
-            startActivity(intent);
-        });
-
         OkHttpClient httpclient = new OkHttpClient();
+        Util user = getIntent().getParcelableExtra("user");
         final ListView listViewRestos = findViewById(R.id.listViewRestos);
-
+        System.out.println(user.getPseudo());
         //Prépare la requête
-        Request requestClients = new Request.Builder().url("http://192.168.1.14/apiResto/getAllRestosJSON.php").build();  //Adresse JOAQUIM
+        Request requestClients = new Request.Builder().url("http://192.168.1.45/projet/getAllRestosJSON.php").build();  //Adresse JOAQUIM
         //Request requestClients = new Request.Builder().url("http://192.168.1.14/apiResto/getAllRestosJSON.php").build();  //Adresse PACÔME
         //Request requestClients = new Request.Builder().url("http://192.168.1.14/apiResto/getAllRestosJSON.php").build();  //Adresse ????????????
         //Request requestClients = new Request.Builder().url("http://192.168.1.14/apiResto/getAllRestosJSON.php").build();  //Adresse ????????????
@@ -82,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                                 String horaires = jsonObject.getString("horairesR");
 
                                 Log.i("restos", nom + " " + ville + " ");
-                                Resto r = new Resto(idResto, nom, numRue, nomRue, ville, codePostal, horaires, description);
+                                Resto r = new Resto(idResto, nom, numRue, nomRue, codePostal, ville, horaires, description);
                                 lesRestos.add(r);
                             }
 
@@ -112,8 +108,16 @@ public class MainActivity extends AppCompatActivity {
             private void startViewUnRestoActivity(Resto r) {
                 Intent intent = new Intent(MainActivity.this, DetailRestoActivity.class);
                 intent.putExtra("Resto", r);
+                intent.putExtra("user", user);
                 startActivity(intent);
             }
+
+        });
+        button_disc.setOnClickListener(view -> {
+            Intent intent5 = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent5);
+            Toast.makeText(MainActivity.this, "Tu es déconnecté ! " , Toast.LENGTH_SHORT).show();
+
         });
     }
 }
