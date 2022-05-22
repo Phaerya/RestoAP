@@ -7,11 +7,13 @@ public class Reservation  implements Serializable {
     protected String nomresa;
     protected Integer nbresa;
     protected Integer idutil;
+    protected Integer idresto;
 
-    public Reservation(String nomresa, Integer idutil) {
+    public Reservation(String nomresa, Integer idutil, Integer idresto) {
         this.nomresa = nomresa;
         //this.nbresa = nbresa;
         this.idutil = idutil;
+        this.idresto = idresto;
     }
 
     public Integer getId() {

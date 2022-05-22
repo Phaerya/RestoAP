@@ -43,14 +43,14 @@ public class DetailRestoActivity extends AppCompatActivity {
         TextView localisation = findViewById(R.id.textViewLocalisation);
         TextView codePostal = findViewById(R.id.textViewCodePostal);
         TextView ville = findViewById(R.id.textViewVille);
-        TextView horaires = findViewById(R.id.textViewHoraires);
+
         TextView description = findViewById(R.id.textViewDescription);
 
         nomResto.setText(resto.getNomResto());
         codePostal.setText(resto.getCodePostal());
         localisation.setText(resto.getLocalisation());
         ville.setText(resto.getVille());
-        horaires.setText(resto.getHoraires());
+
         description.setText(resto.getDescription());
 
         // Bouton retour et réserver
@@ -69,7 +69,7 @@ public class DetailRestoActivity extends AppCompatActivity {
             MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
 
-            Reservation reservation = new Reservation(user.getPseudo(), resto.getidResto());
+            Reservation reservation = new Reservation(user.getPseudo(), (int) user.getId(), resto.getidResto());
             RequestBody body = RequestBody.create(new Gson().toJson(reservation), JSON);
 
             OkHttpClient httpclient = new OkHttpClient();

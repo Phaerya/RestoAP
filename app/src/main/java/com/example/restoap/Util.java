@@ -48,6 +48,22 @@ public class Util implements Parcelable {
 
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public int getModeration() {
+        return moderation;
+    }
+
+    public void setModeration(int moderation) {
+        this.moderation = moderation;
+    }
+
     public String getPseudo() {
         return pseudo;
     }

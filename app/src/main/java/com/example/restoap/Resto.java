@@ -5,27 +5,45 @@ import java.io.Serializable;
 public class Resto implements Serializable {
     protected Integer idResto;
     protected String nomResto;
-    protected String localisation;
+    protected String numAdrR;
+    protected String voieAdrR;
     protected String codePostal;
     protected String ville;
     protected String horaires;
     protected String description;
 
-    public Resto(Integer idResto, String nomResto, String codePostal, String ville) {
+    public Resto(Integer idResto, String nomResto,  String codePostal, String ville) {
         this.idResto = idResto;
         this.nomResto = nomResto;
         this.codePostal = codePostal;
         this.ville = ville;
     }
 
-    public Resto(Integer idResto, String nomResto, String localisation, String codePostal, String ville, String horaires, String description) {
+    public Resto(Integer idResto, String nomResto, String numAdrR, String voieAdrR, String codePostal, String ville, String horaires, String description) {
         this.idResto = idResto;
         this.nomResto = nomResto;
-        this.localisation = localisation;
+        this.numAdrR = numAdrR;
+        this.voieAdrR = voieAdrR;
         this.codePostal = codePostal;
         this.ville = ville;
         this.horaires = horaires;
         this.description = description;
+    }
+
+    public String getNumAdrR() {
+        return numAdrR;
+    }
+
+    public void setNumAdrR(String numAdrR) {
+        this.numAdrR = numAdrR;
+    }
+
+    public String getVoieAdrR() {
+        return voieAdrR;
+    }
+
+    public void setVoieAdrR(String voieAdrR) {
+        this.voieAdrR = voieAdrR;
     }
 
     public Integer getidResto() {
@@ -45,11 +63,11 @@ public class Resto implements Serializable {
     }
 
     public String getLocalisation() {
-        return localisation;
+        return numAdrR;
     }
 
     public void setLocalisation(String localisation) {
-        this.localisation = localisation;
+        this.numAdrR = numAdrR;
     }
 
     public String getCodePostal() {
