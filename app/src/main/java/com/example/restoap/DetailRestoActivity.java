@@ -3,12 +3,15 @@ package com.example.restoap;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.webkit.WebView;
+
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -32,6 +35,7 @@ public class DetailRestoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        WebView webView;
         setContentView(R.layout.activity_fiche_resto);
         Intent intent = getIntent();
         Resto resto = (Resto) intent.getSerializableExtra("Resto");
@@ -39,19 +43,23 @@ public class DetailRestoActivity extends AppCompatActivity {
 
         Button button_reserver = findViewById(R.id.btnReserver);
         // Données des restaurants affichées
+        // Données des restaurants affichées
         TextView nomResto = findViewById(R.id.textViewNomResto);
-        TextView localisation = findViewById(R.id.textViewLocalisation);
+        TextView numAdrR = findViewById(R.id.textViewNumRue);
+        TextView voieAdrR = findViewById(R.id.textViewNomRue);
         TextView codePostal = findViewById(R.id.textViewCodePostal);
         TextView ville = findViewById(R.id.textViewVille);
-
+        webView = findViewById(R.id.WebViewHorairesResto);
+        webView.setBackgroundColor(Color.TRANSPARENT);
         TextView description = findViewById(R.id.textViewDescription);
 
         nomResto.setText(resto.getNomResto());
         codePostal.setText(resto.getCodePostal());
-        localisation.setText(resto.getLocalisation());
+        numAdrR.setText(resto.getNumAdrR());
+        voieAdrR.setText(resto.getVoieAdrR());
         ville.setText(resto.getVille());
-
         description.setText(resto.getDescription());
+        webView.loadData(resto.getHoraires(),"text/html" ,"UTF-8");
 
         // Bouton retour et réserver
         Button btnRetour = findViewById(R.id.btnRetour);
