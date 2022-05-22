@@ -68,16 +68,17 @@ public class MainActivity extends AppCompatActivity {
                             lesRestos.clear();
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                                int idResto = jsonObject.getInt("idResto");
-                                String nom = jsonObject.getString("nomResto");
-                                String localisation = jsonObject.getString("localisation");
-                                String codePostal = jsonObject.getString("codePostal");
-                                String ville = jsonObject.getString("ville");
-                                String description = jsonObject.getString("description");
-                                String horaires = jsonObject.getString("horaires");
-                                System.out.println(jsonObject);
+                                int idResto = jsonObject.getInt("idR");
+                                String nom = jsonObject.getString("nomR");
+                                String numRue = jsonObject.getString("numAdrR");
+                                String nomRue = jsonObject.getString("voieAdrR");
+                                String codePostal = jsonObject.getString("cpR");
+                                String ville = jsonObject.getString("villeR");
+                                String description = jsonObject.getString("descR");
+                                String horaires = jsonObject.getString("horairesR");
+
                                 Log.i("restos", nom + " " + ville + " ");
-                                Resto r = new Resto(idResto, nom, localisation, codePostal, ville, horaires, description);
+                                Resto r = new Resto(idResto, nom, numRue, nomRue, ville, codePostal, horaires, description);
                                 lesRestos.add(r);
                             }
 
