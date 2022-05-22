@@ -63,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         //Prépare la requête
-        Request requestUtil = new Request.Builder().url("http://192.168.1.45/projet/getAllAccountJSON.php").build();
+        Request requestUtil = new Request.Builder().url("http://192.168.1.19/apiResto/getAllAccountJSON.php").build();
         httpclient.newCall(requestUtil).enqueue(new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {

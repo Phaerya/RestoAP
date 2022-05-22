@@ -82,12 +82,9 @@ public class DetailRestoActivity extends AppCompatActivity {
 
             OkHttpClient httpclient = new OkHttpClient();
             Request request = new Request.Builder()
-                    .url("http://192.168.1.45/projet/sendReservJSON.php")
+                    .url("http://192.168.1.19/apiResto/sendReservJSON.php")
                     .post(body)
                     .build();
-
-
-
 
             httpclient.newCall(request).enqueue(new Callback() {
                 @Override
@@ -130,7 +127,6 @@ public class DetailRestoActivity extends AppCompatActivity {
 
                     });
                 }
-
 
 
                // @Override

@@ -12,12 +12,6 @@ public class Resto implements Serializable {
     protected String horaires;
     protected String description;
 
-    public Resto(Integer idResto, String nomResto,  String codePostal, String ville) {
-        this.idResto = idResto;
-        this.nomResto = nomResto;
-        this.codePostal = codePostal;
-        this.ville = ville;
-    }
 
     public Resto(Integer idResto, String nomResto, String numAdrR, String voieAdrR, String codePostal, String ville, String horaires, String description) {
         this.idResto = idResto;

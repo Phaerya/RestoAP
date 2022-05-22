@@ -63,7 +63,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                 Request request = new Request.Builder()
-                        .url("http://192.168.1.45/projet/sendAccountJSON.php")
+                        .url("http://192.168.1.19/apiResto/sendAccountJSON.php")
                         .post(body)
                         .build();
                 httpclient.newCall(request).enqueue(new Callback() {
